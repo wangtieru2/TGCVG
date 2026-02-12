@@ -1,0 +1,5 @@
+max_arm_step: 5
+rollout_length: 10
+penalty_coef: 1.0
+auto_alpha: False
+alpha: 0.05

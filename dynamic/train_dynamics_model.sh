@@ -1,0 +1,1 @@
+python main4offline.py --env d4rl --env-name halfcheetah-medium-v2

@@ -1,0 +1,6 @@
+max_arm_step: 2
+rollout_length: 5
+real_ratio: 0.95
+penalty_coef: 25
+n_epochs: 5000
+buffer-size: 2000000

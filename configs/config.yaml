@@ -1,0 +1,43 @@
+construct_transformer_model : 
+  normalizer_type : &normalizer_type standard
+
+ElucidatedTransformer :
+  max_length : &seq_len 5
+  max_ep_len : 1000
+  hidden_size : 256
+  n_layer : 3
+  n_head : 1
+  n_inner : 4*256
+  activation_function : gelu
+  n_positions : 1024
+  resid_pdrop : 0.1
+  drop_p : 0.1
+ 
+Trainer : 
+  gamma : 0.99
+  train_batch_size : &batch_size 256
+  train_lr : 1e-3
+  lr_scheduler : linear
+  weight_decay : 1e-4
+  train_num_steps : 200000
+  save_and_sample_every : 20000
+  reweighted_training : False
+  cql_min_q_weight : 0.1         
+
+
+SimpleTransformerGenerator : 
+  max_sample_length: &sample_len 60
+  sample_batch_size : 1000
+  save_num_transitions : 5000000 
+  dynamic_model_path: ./src/transformer/dynamic_models/
+
+Dataset : 
+  seq_len : *seq_len  
+  batch_size : *batch_size  
+  num_workers : 4
+  normalizer_type : *normalizer_type  
+  modalities : ["observations", "actions", "rewards"]
+  discounted_return : True
+  restore_rewards : True
+  penalty : 100
+
