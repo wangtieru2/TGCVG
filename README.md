@@ -27,7 +27,7 @@ python download.sh
 The TGCVG training pipeline consists of four main stages:
 
 #### 1.Train Dynamics Model
-To train dynamics model, please run the following command
+To train the dynamics model, please run the following command
 ```
 cd dynamic
 python main4offline.py --env d4rl --env-name halfcheetah-medium-v2
@@ -35,7 +35,7 @@ python main4offline.py --env d4rl --env-name halfcheetah-medium-v2
 After training, manually move the trained model file to: `src/transformer/dynamic_models/halfcheetah-medium-v2/`.
 
 #### 2.Train Transformer Model
-To train transformer model, please run the following command
+To train the transformer model, please run the following command
 ```
 python src/transformer/train_transformer.py --dataset halfcheetah-medium-v2  --config_name config.yaml
 ```
